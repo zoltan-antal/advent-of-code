@@ -43,19 +43,15 @@ for line_index, line in enumerate(symbols):
     for gear_index in line:
         if lines[line_index][gear_index] != "*":
             continue
-        adjacent_count = 0
         adjacent_numbers = []
         for number in [n["number"] for n in numbers[line_index] if ((n["index"] + len(str(n["number"]))) == gear_index) or (n["index"] - 1 == gear_index)]:
-            adjacent_count += 1
             adjacent_numbers.append(number)
         if (line_index > 0):
             for number in [n["number"] for n in numbers[line_index - 1] if (n["index"] - 1) <= gear_index <= n["index"] + len(str(n["number"]))]:
-                adjacent_count += 1
                 adjacent_numbers.append(number)
         if (line_index < len(numbers) - 1):
             for number in [n["number"] for n in numbers[line_index + 1] if (n["index"] - 1) <= gear_index <= n["index"] + len(str(n["number"]))]:
-                adjacent_count += 1
                 adjacent_numbers.append(number)
-        if adjacent_count == 2:
+        if len(adjacent_numbers) == 2:
             sum_gears += adjacent_numbers[0] * adjacent_numbers[1]
 print("Part two:", sum_gears)
