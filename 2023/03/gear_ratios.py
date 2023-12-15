@@ -41,6 +41,8 @@ print("Part one:", sum_parts)
 sum_gears = 0
 for line_index, line in enumerate(symbols):
     for gear_index in line:
+        if lines[line_index][gear_index] != "*":
+            continue
         adjacent_count = 0
         adjacent_numbers = []
         for number in [n["number"] for n in numbers[line_index] if ((n["index"] + len(str(n["number"]))) == gear_index) or (n["index"] - 1 == gear_index)]:
