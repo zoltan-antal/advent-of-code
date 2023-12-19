@@ -12,7 +12,7 @@ def parse_draw(draw):
 
 with open("input.txt", "r") as fhand:
     lines = fhand.readlines()
-lines = list(map(lambda line: line.strip(), lines))
+lines = [line.strip() for line in lines]
 
 games = list(map(lambda line: list(
     map(lambda draw: parse_draw(draw), line_to_draws(line))), lines))

@@ -1,6 +1,6 @@
 with open("input.txt", "r") as fhand:
     lines = fhand.readlines()
-lines = list(map(lambda line: line.strip(), lines))
+lines = [line.strip() for line in lines]
 
 numbers = []
 symbols = []

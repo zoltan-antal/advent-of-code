@@ -22,7 +22,7 @@ def line_to_digits(line):
 
 with open("input.txt", "r") as fhand:
     lines = fhand.readlines()
-lines = list(map(lambda line: line.strip(), lines))
+lines = [line.strip() for line in lines]
 
 lines_digits = list(map(lambda line: line_to_digits(line), lines))
 

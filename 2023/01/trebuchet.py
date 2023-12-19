@@ -1,6 +1,6 @@
 with open("input.txt", "r") as fhand:
     lines = fhand.readlines()
-lines = list(map(lambda line: line.strip(), lines))
+lines = [line.strip() for line in lines]
 
 lines_digits = list(map(lambda line: list(
     filter(lambda char: char.isnumeric(), list(line))), lines))
